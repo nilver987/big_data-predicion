@@ -7,7 +7,7 @@ Fuente: WeatherAPI (`current.json`). A diferencia de `uso-atmos` (sensores ESP32
 ## Flujo
 
 ```text
-WeatherAPI --HTTP cada 10 s--> producer_clima.py --> Kafka: heladas-eventos --> consumer_clima.py
+WeatherAPI --HTTP cada 15 min--> producer_clima.py --> Kafka: heladas-eventos --> consumer_clima.py
  current.json                  arma el evento         key = ciudad              valida esquema y rango
 ```
 
@@ -75,7 +75,7 @@ Rango físico aceptado: temperatura -30 a 40 °C, punto de rocío -60 a 30 °C, 
 |---|---|---|
 | `KAFKA_BOOTSTRAP_SERVERS` | `kafka:9092` | producer y consumer |
 | `KAFKA_TOPIC_HELADAS` | `heladas-eventos` | producer y consumer |
-| `API_INTERVAL_MS` | `10000` | producer: pausa entre consultas a la API |
+| `API_INTERVAL_MS` | `900000` (15 minutos, el ritmo con que WeatherAPI renueva su observación) | producer: pausa entre consultas a la API |
 | `CIUDAD` | `Juliaca` | producer |
 | `KAFKA_GROUP_ID` | `uso-heladas-group` | consumer |
 | `WEATHERAPI_KEY` | *(sin valor por defecto; viene de `pyspark/sesiones/u1/.env`, nunca va en el repositorio)* | producer |

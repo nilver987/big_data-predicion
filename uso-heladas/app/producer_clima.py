@@ -9,7 +9,7 @@ from kafka import KafkaProducer
 
 TOPIC_HELADAS = os.getenv("KAFKA_TOPIC_HELADAS", "heladas-eventos")
 BOOTSTRAP_SERVERS = os.getenv("KAFKA_BOOTSTRAP_SERVERS", "kafka:9092")
-INTERVAL_MS = int(os.getenv("API_INTERVAL_MS", "10000"))
+INTERVAL_MS = int(os.getenv("API_INTERVAL_MS", "900000"))
 CIUDAD = os.getenv("CIUDAD", "Juliaca")
 API_URL = "https://api.weatherapi.com/v1/current.json"
 # La clave viene del .env por variable de entorno; si falta, falla a la vista
