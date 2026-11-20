@@ -20,3 +20,6 @@ __pycache__/
 
 # SO
 .DS_Store
+
+# Artefactos generados en sesiones (Parquet, checkpoints, modelos)
+pyspark/sesiones/*/*/artifacts/
